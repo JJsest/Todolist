@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="static/css/to_do_list.css">
+</head>
+<body>
+    <header class="bg-dark text-light py-2 text-center">
+        <h1>Lista de Tarefas</h1>
+    </header>
+    <main class="container my-4">
+        <input type="text" id="taskName" class="form-control mb-2" placeholder="Digite uma nova tarefa">
+        <select id="taskPriority" class="form-select mb-2">
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+        </select>
+        <button id="addTaskButton" class="btn btn-primary w-100 mb-3">Adicionar</button>
+
+        <div class="d-flex justify-content-center mb-3 gap-2">
+            <button id="ordenarAlfabetico" class="btn btn-outline-secondary">Alfabética</button>
+            <button id="ordenarPrioridadeAlta" class="btn btn-outline-danger">Alta <i class="bi bi-arrow-right"></i> Baixa</button>
+            <button id="ordenarPrioridadeBaixa" class="btn btn-outline-success">Baixa <i class="bi bi-arrow-right"></i> Alta</button>
+            <button id="botaoRemoverTodas" class="btn btn-outline-danger">Remover Todas</button>
+            <button id="botaoRemoverTodasConcluidas" class="btn btn-outline-info">Remover Concluidas</button>
+        </div>
+
+        <ul id="listaTarefas" class="list-group"></ul>
+
+        <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editTaskLabel">Editar Tarefa</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="editTaskForm">
+                    <div class="mb-3">
+                      <label for="taskName" class="form-label">Nome da Tarefa</label>
+                      <input type="text" class="form-control" id="taskNameModal" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="taskPriorityModal" class="form-label">Prioridade</label>
+                      <select class="form-select" id="taskPriorityModal">
+                        <option value="alta">Alta</option>
+                        <option value="media">Média</option>
+                        <option value="baixa">Baixa</option>
+                      </select>
+                    </div>
+                    <input type="hidden" id="taskId">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" id="saveTaskChanges" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-light text-center py-2">
+        <small>Juliana 3°Info</small>
+    </footer>
+    <script type="module" src="static/js/to_do_list.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
